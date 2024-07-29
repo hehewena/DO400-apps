@@ -22,7 +22,7 @@ pipeline{
         }
 
         // Add the "Deploy" stage here
-        stage(){
+        stage('deploy'){
             steps{
                 sh '''
                      oc project ivjaas-deploy-strategies
