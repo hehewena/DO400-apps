@@ -22,5 +22,13 @@ pipeline{
         }
 
         // Add the "Deploy" stage here
+        stage(){
+            steps{
+                sh '''
+                     oc project ivjaas-deploy-strategies
+                     oc start-build greeting-service --follow --wait
+                '''
+            }
+        }
     }
 }
