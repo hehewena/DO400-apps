@@ -1,0 +1,21 @@
+pipeline {
+    agent {
+        label 'nodejs'
+    }
+    stages {
+        stage('install dependencies') {
+            steps {
+                dir ('exchange-cli') {
+                    sh "npm install"
+                }
+            }
+        }
+        stage('build') {
+            steps {
+                dir ('exchange-cli') {
+                    sh "npm run build"   
+                }
+            }
+        }
+    }
+}
