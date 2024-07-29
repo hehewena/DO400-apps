@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label "nodejs"
+        label "any"
     }
     stages{
         stage("Install dependencies"){
@@ -23,10 +23,10 @@ pipeline{
 
         // Add the "Deploy" stage here
         stage('deploy'){
-            steps{
+            steps {
                 sh '''
-                     oc project ivjaas-deploy-strategies
-                     oc start-build greeting-service --follow --wait
+                    oc project RHT_OCP4_DEV_USER-deploy-strategies
+                    oc start-build greeting-service --follow --wait
                 '''
             }
         }
